@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+
+  <script defer src="./firebase.js"></script>
+  <script defer src="./script.js"></script>
+
+  <title>To Do App</title>
+</head>
+
+<body class="theme-dark">
+
+  <header class="flex-row">
+    <h1>TODO</h1>
+    <div class="theme-block">
+      <input type="checkbox" name="theme" id="theme">
+      <label for="theme"></label>
+    </div>
+  </header>
+
+<main>
+    <div class="new-todo">
+      <div class="check">
+        <div class="check-mark">
+        </div>
+      </div>
+      <div class="new-todo-input">
+        <form onsubmit="addItem(event)">
+          <input id="todo-input" type="text" placeholder="Create a new todo..">
+        </form>
+      </div>
+    </div>
+    <div class="todo-items-wrapper">
+      <div class="todo-items">
+        <!-- Dynamically-->
+        <div class="todo-item">
+          <div class="check">
+            <div class="check-mark">
+              <img src="./images/icon-check.svg" alt="">
+            </div>
+          </div>
+          <div class="todo-text">
+            cut the lawn
+          </div>
+        </div>
+
+      </div>
+      <div class="todo-item-info">
+        <div class="items-left">
+          5 items left
+        </div>
+        <div class="item-status">
+          <span class="active">All</span>
+          <span>Active</span>
+          <span>Completed</span>
+        </div>
+        <div class="clear-completed">
+          Clear Completed
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+
+</html>

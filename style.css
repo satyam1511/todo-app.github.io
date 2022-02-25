@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap');
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.theme-dark {
+  --bg-top-image: 0 0 url(./images/bg-desktop-dark.jpg) no-repeat;
+  --main-bg: hsl(235, 21%, 11%);
+  --todo-bg: hsl(235, 24%, 19%);
+  --todo-shadow: hsl(235, 21%, 11%);
+  --font-color: hsl(234, 39%, 85%);
+  --font-color-hover: #fff;
+}
+
+.theme-light {
+  --bg-top-image: 0 0 url(./images/bg-desktop-light.jpg) no-repeat;
+  --main-bg: hsl(0, 0%, 98%);
+  --todo-bg: hsl(0, 0%, 98%);
+  --todo-shadow: hsl(235, 19%, 35%);
+  --font-color: hsl(236, 9%, 61%);
+  --font-color-hover: hsl(235, 21%, 11%);
+}
+
+body {
+  font: 400 18px/1 'Josefin Sans', sans-serf;
+  background: var(--bg-top-image);
+  background-color: var(--main-bg);
+  background-size: 0 0 52em 0 ;
+  color: var(--font-color);
+}
+
+header, main {
+  max-width: 545px;
+  margin: 0 auto;
+}
+
+
+header {
+  justify-content: space-between;
+  padding: 52px 0 11px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #fff;
+  letter-spacing: 1rem;
+}
+
+.theme-block {
+  margin: -10px 0 0;
+}
+
+.theme-block #theme {
+  display: none;
+}
+
+.theme-block #theme + label::before {
+  content: '';
+  background: url(./images/icon-sun.svg);
+  display: block;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.theme-block #theme:checked + label::before {
+  background: url(./images/icon-moon.svg);
+}
+
+
+
+.image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 350px;
+  z-index: -1;
+}
+
+.image-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 30px;
+  margin-top: 100px;
+  /*   background-color: yellow;*/
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: var(--font-color);
+  font-size: 50px;
+  font-weight: bolder;
+  letter-spacing: 19px;
+}
+
+.new-todo {
+  background-color: var(--todo-bg);
+  margin-top: 59px;
+  height: 60px;
+  border-radius: 6px;
+  display: flex;
+  /* flex-direction: ; */
+}
+
+.check {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 16px;
+  border: 2px solid var(--font-color-hover);
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.check-mark img{
+  visibility: hidden;
+}
+
+.check-mark:hover , .check-mark.checked {
+  /* border-color: linear-gradient(135deg,  #55DDFF 0% , #C058F3 100%); */ 
+  background: linear-gradient(135deg, #55ddff 0%, #8d1cc5 100%);
+}
+
+.check-mark:hover img, .check-mark.checked img{
+  visibility: visible;
+}
+
+.new-todo-input {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.new-todo-input form {
+  flex-grow: 1;
+}
+
+.new-todo-input input {
+  width: 100%;
+  padding: 10px 0px;
+  background-color: var(--todo-bg-color);
+  color: hsl(234, 39%, 85%);
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.new-todo-input input ::placeholder {
+  color: hsl(235, 95%, 45%);
+}
+
+.todo-items-wrapper {
+  margin-top: 14px;
+  border-radius: 6px;
+  background-color: var(--todo-bg-color);
+  overflow: hidden;
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.4);
+}
+
+.todo-item {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  font-size: 21px;
+  border-bottom: 1px solid var(--todo-border);
+  color: var(--todo-text-color);
+  font-weight: bold;
+  background-color: var(--todo-bg-color);
+  transition: all 0.25s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0px 7px 0px hsl(235, 21%, 11%);
+  border-color: var(--todo-bg-color);
+}
+
+.todo-text {
+  display: flex;
+  align-items: center;
+}
+
+.todo-text.checked{
+  text-decoration: line-through;
+  color: hsl(233,14% ,  35%);
+}
+
+.todo-item-info {
+  height: 70px;
+  width: 100%;
+  color: var(--todo-text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.item-status {
+  display: flex;
+  justify-content: center;
+}
+
+.item-status span {
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.item-status span:hover,
+.item-status span.active,
+.clear-completed:hover {
+  color: hsl(220, 90%, 61%);
+}
+
+.clear-completed {
+  cursor: pointer;
+  text-align: end;
+}
